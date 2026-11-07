@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
+
+    <!-- Header Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_primary"
+        android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/title_contact_detail"
+        app:titleTextColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Profile Photo & Badge Container -->
+            <FrameLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgDetailPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_person_placeholder"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="bottom|end"
+                    app:cardBackgroundColor="@color/purple_button"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_camera"
+                        app:tint="@color/white" />
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <!-- Nom -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_nom"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etNom"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="name"
+                android:background="@drawable/bg_edittext"
+                android:hint="@string/label_nom"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="12dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
+
+            <!-- Prénom -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_prenom"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etPrenom"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="personGivenName"
+                android:background="@drawable/bg_edittext"
+                android:hint="@string/label_prenom"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="12dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
+
+            <!-- Téléphone + Appeler -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_telephone"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etTelephone"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:autofillHints="phoneNumber"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="@string/label_telephone"
+                    android:inputType="phone"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCall"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/btn_call"
+                    android:padding="0dp"
+                    app:backgroundTint="@color/green_call"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_phone"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconTint="@color/white" />
+            </LinearLayout>
+
+            <!-- E-mail + Envoyer e-mail -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_email"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:autofillHints="emailAddress"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="@string/label_email"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSendEmail"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/btn_send_email"
+                    android:padding="0dp"
+                    app:backgroundTint="@color/blue_email"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_email"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconTint="@color/white" />
+            </LinearLayout>
+
+            <!-- Photo Action Buttons (Choose & Take) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChoosePhoto"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_choose_photo"
+                    android:textAllCaps="false"
+                    android:textSize="13sp"
+                    app:backgroundTint="@color/purple_button"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_gallery"
+                    app:iconGravity="textStart" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTakePhoto"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_take_photo"
+                    android:textAllCaps="false"
+                    android:textSize="13sp"
+                    app:backgroundTint="@color/purple_button"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_camera"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+            <!-- Save Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_save"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/green_save"
+                app:cornerRadius="10dp" />
+
+            <!-- Cancel Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/btn_cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                app:cornerRadius="10dp"
+                app:strokeColor="@color/border_gray" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
